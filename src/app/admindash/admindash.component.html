@@ -1,1 +1,50 @@
-<p>admindash works!</p>
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>Id</th>
+            <th>employeeName</th>
+            <th>role</th>
+            <th>salary</th>
+            <th>qualification</th>
+            <th>IdateOfJoin</th>
+            <th>email</th>
+            <th>address</th>
+            <th>photo</th>
+            
+
+
+        </tr>
+
+
+
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.role}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.qualification}}</td>
+            <td>{{employee.dateOfJoin}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.photo}}</td>
+
+
+
+        </tr>
+
+
+
+    </tbody>
+
+
+
+
+
+
+</table>
