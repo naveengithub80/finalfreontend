@@ -1,28 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
-
 
 @Component({
   selector: 'app-admindash',
   templateUrl: './admindash.component.html',
-  styleUrl: './admindash.component.css'
+  styleUrls: ['./admindash.component.css']
 })
-export class AdmindashComponent {
+export class AdmindashComponent implements OnInit {
 
-employees:Employee[]=[];
-  constructor(private employeeService:EmployeeService){}
+  employees: Employee[] = [];
 
+  constructor(private employeeService: EmployeeService) {}
 
-  ngOnInit():void{
+  ngOnInit(): void {
     this.getEmployees();
   }
 
-  getEmployees(){
-    this.employeeService.getEmployeeList().subscribe(data=>{
-      this.employees=data;
-
-    })
+  getEmployees() {
+    this.employeeService.getEmployeeList().subscribe(data => {
+      this.employees = data;
+    });
   }
 
+  // Method to generate photo URL
+  getEmployeePhotoUrl(employeeId: number): string {
+    return `http://localhost:8070/api/v1/employees/${employeeId}/photo`;  // URL of the photo API
+  }
 }

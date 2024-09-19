@@ -1,25 +1,34 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http'; // Correct import
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdmindashComponent } from './admindash/admindash.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { FormsModule } from '@angular/forms';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { ManagerloginComponent } from './managerlogin/managerlogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdmindashComponent
+    AdmindashComponent,
+    HomeComponent,
+    LoginComponent,
+    AdminloginComponent,
+    EmployeeFormComponent,
+    ManagerloginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideHttpClient(withFetch()) // Correct provider configuration
   ],
   bootstrap: [AppComponent]
 })
