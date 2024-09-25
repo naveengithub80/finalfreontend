@@ -25,7 +25,7 @@ export class ManagerloginComponent {
 
     if(this.managerauthService.authenticate(this.username,this.password)){
 
-      this.router.navigate(['admindash'])
+      this.router.navigate(['managerdash'])
       this.inValidLogin=false;
 
     }

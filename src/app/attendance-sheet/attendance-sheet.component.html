@@ -1,0 +1,90 @@
+<p>attendance-sheet works!</p>
+<form>
+    <div class="container">
+        <h1>Attendance Sheet</h1>
+        <div class="month-nav">
+          <button (click)="goToPreviousMonth()">Previous</button>
+          <!--span>{{ currentMonth | currentDate: 'MMMM yyyy' }}</span-->
+          <button (click)="goToNextMonth()">Next</button>
+        </div>
+      
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Designation</th>
+                <th *ngFor="let day of daysInMonth">{{ day }}</th>
+                <th>Present Days</th>
+                <th>Absent Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.designation }}</td>
+                <td *ngFor="let day of daysInMonth">
+                  <select >
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                  </select>
+                </td>
+                <td>{{ calculatePresentDays(employee.attendance) }}</td>
+                <td>{{ calculateAbsentDays(employee.attendance) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="submit-btn">
+          <button (click)="submitAttendance()">Submit</button>
+        </div>
+      </div>
+      
+
+
+
+</form>
+
+<!--div class="attendance-container">
+  <table class="attendance-table">
+        <thead>
+            <tr>
+              <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Designation</th>
+                <th *ngFor="let date of dates">{{ date }}</th>
+                <th>Working Days</th>
+                <th>Absent Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+              <td>{{ employee.id }}</td>
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.designation }}</td>>
+                
+                  <div class="scrollable-container">
+                 Inner Scrollable Table 
+
+                    <td *ngFor="let date of dates">
+                        <select [(ngModel)]="employee.attendance[date]">
+                   <!-select  (change)="calculateDays(employee)"
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </td>
+                  </div>
+                  <td>{{ employee.workingDays }}</td>
+        <td>{{ employee.absentDays }}</td>
+      </tr>                   
+                      
+    
+  
+  <div class="submit-container">
+    <button (click)="submitAttendance()">Submit</button>
+  </div-->
+
+

@@ -10,6 +10,8 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { FormsModule } from '@angular/forms';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { ManagerloginComponent } from './managerlogin/managerlogin.component';
+import { ManagerdashComponent } from './managerdash/managerdash.component';
+import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { ManagerloginComponent } from './managerlogin/managerlogin.component';
     LoginComponent,
     AdminloginComponent,
     EmployeeFormComponent,
-    ManagerloginComponent
+    ManagerloginComponent,
+    ManagerdashComponent,
+    AttendanceSheetComponent
+
   ],
   imports: [
     BrowserModule,

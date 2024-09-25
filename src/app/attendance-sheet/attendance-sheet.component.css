@@ -1,0 +1,178 @@
+/*.attendance-container {
+  padding: 20px;
+  max-width: 100%;
+}
+
+.attendance-header {
+  text-align: center;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4; 
+   z-index: 2; /* Ensure the header stays on top
+}
+
+td, th {
+  white-space: nowrap;  Prevent text wrapping
+}
+
+td:first-child, th:first-child/* Employee ID 
+{  position: sticky;
+  left: 0px;
+  background-color: white;
+  z-index: 3;
+}
+
+td:nth-child(2), th:nth-child(2) /* Employee Name 
+{
+  position: sticky;
+  left: 100px; /* Adjust this based on the width of the first column 
+  background-color: white;
+  z-index: 3;
+}
+
+td:nth-child(3), th:nth-child(3)  /* Designation 
+{
+  position: sticky;
+  left: 200px; /* Adjust this based on the width of the first two columns 
+  background-color: white;
+  z-index: 3;
+}
+
+/* Date columns 
+td, th {
+  white-space: nowrap;
+  background-color: white;
+}
+
+tbody td {
+  background-color: white;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+  }
+  select:disabled {
+    background-color: #f0f0f0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+  }
+}*/
+
+.attendance-container {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.attendance-table th {
+  background-color: #f4f4f4;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.attendance-table tbody td {
+  background-color: #fff;
+}
+
+.attendance-table td select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.attendance-table thead th:nth-child(-n+3),
+.attendance-table tbody td:nth-child(-n+3) {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #f4f4f4;
+}
+
+.attendance-table thead th:nth-child(1),
+.attendance-table tbody td:nth-child(1) {
+  min-width: 100px;
+}
+
+.attendance-table thead th:nth-child(2),
+.attendance-table tbody td:nth-child(2) {
+  min-width: 150px;
+}
+
+.attendance-table thead th:nth-child(3),
+.attendance-table tbody td:nth-child(3) {
+  min-width: 150px;
+}
+
+.attendance-table td:nth-last-child(2),
+.attendance-table td:last-child {
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+
+
+
+

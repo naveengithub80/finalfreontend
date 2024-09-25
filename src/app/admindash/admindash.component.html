@@ -9,8 +9,11 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a style="color: white;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
+            <a style="color: white; margin:5px;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
 
+        </li>
+        <li>
+            <button style="margin: 5px;" class="btn btn-danger" routerLink="/attendance-sheet">View Attendance</button>
         </li>
 
         <li>
@@ -25,7 +28,7 @@
 
 <hr>
 <h2 style="text-align: center;margin-top: 20px;">Admin Dashboard</h2>
-<a style="color:rgb(86,86,86); font-size: x-large;"><marquee behavior="scroll" direction="left">welcome to admin Dashboard. please fing the employee list below!!. Click Appointments to view and update Appointments, click add appointment to add new appointment</marquee></a>
+<a style="color:rgb(86,86,86); font-size: x-large;"><marquee behavior="scroll" direction="left">welcome to Admin Dashboard. </marquee></a>
 
 <div class="tableFixHead">
     <br>
@@ -33,17 +36,6 @@
 </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <table class="table table-striped">
 
     <thead>
@@ -59,16 +51,9 @@
             <th>email</th>
             <th>address</th>
             <th>photo</th>
-            
-
-
         </tr>
-
-
-
     </thead>
     <tbody>
-
         <tr *ngFor="let employee of employees">
             <td>{{employee.id}}</td>
             <td>{{employee.employeeName}}</td>
@@ -79,19 +64,6 @@
             <td>{{employee.email}}</td>
             <td>{{employee.address}}</td>
             <td><img [src]="getEmployeePhotoUrl(employee.id)" alt="Employee Photo" width="100" height="100"></td>
-
-
-
-
         </tr>
-
-
-
     </tbody>
-
-
-
-
-
-
 </table>

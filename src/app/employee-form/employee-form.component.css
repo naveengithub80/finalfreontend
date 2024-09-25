@@ -1,10 +1,12 @@
 .container {
     max-width: 600px;
+    
   }
   
   .card-header {
-    background-color: #007bff;
+    background-color: #4f91dc;
     color: white;
+
   }
   
   .form-label {
@@ -18,13 +20,13 @@
   }
   
   .btn-block {
-    background-color: #28a745;
+    background-color: #4f91dc;
     color: white;
     border-radius: 10px;
   }
   
   .btn-block:hover {
-    background-color: #218838;
+    background-color: #4f91dc;
   }
   
   .mb-3 input,
@@ -32,9 +34,6 @@
     background-color: #f9f9f9;
     padding: 10px;
   }
-
-
-
 
   /* Style the file input */
 input[type="file"] {
@@ -45,7 +44,7 @@ input[type="file"] {
   }
   
   input[type="file"]::file-selector-button {
-    background-color: #28a745;
+    background-color: #4f91dc;
     color: white;
     padding: 10px;
     border: none;
@@ -54,7 +53,7 @@ input[type="file"] {
   }
   
   input[type="file"]::file-selector-button:hover {
-    background-color: #218838;
+    background-color: #4f91dc;
   }
   
   
