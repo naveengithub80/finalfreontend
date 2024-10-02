@@ -7,6 +7,9 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { ManagerloginComponent } from './managerlogin/managerlogin.component';
 import { ManagerdashComponent } from './managerdash/managerdash.component';
 import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.component';
+import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
+import { EmployeedashComponent } from './employeedash/employeedash.component';
+import { AdminauthguardService } from './adminauthguard.service';
 
 const routes: Routes = [
   
@@ -14,11 +17,13 @@ const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
 
   {path:'adlogin',component:AdminloginComponent},
-  {path:'admindash',component:AdmindashComponent},
-  {path:'addEmployee',component:EmployeeFormComponent},
+  {path:'admindash',component:AdmindashComponent,canActivate:[AdminauthguardService]},
+  {path:'addEmployee',component:EmployeeFormComponent,canActivate:[AdminauthguardService]},
   {path: 'managerlogin',component:ManagerloginComponent},
-  {path: 'managerdash', component:ManagerdashComponent},
-  {path: 'attendance-sheet', component:AttendanceSheetComponent}
+  {path: 'managerdash', component:ManagerdashComponent,canActivate:[AdminauthguardService]},
+  {path: 'attendance-sheet', component:AttendanceSheetComponent},
+  {path: 'employeelogin',component:EmployeeloginComponent},
+  {path: 'employeedash',component:EmployeedashComponent}
   
 
 ];

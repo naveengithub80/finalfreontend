@@ -12,6 +12,8 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { ManagerloginComponent } from './managerlogin/managerlogin.component';
 import { ManagerdashComponent } from './managerdash/managerdash.component';
 import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.component';
+import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
+import { EmployeedashComponent } from './employeedash/employeedash.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.co
     EmployeeFormComponent,
     ManagerloginComponent,
     ManagerdashComponent,
-    AttendanceSheetComponent
+    AttendanceSheetComponent,
+    EmployeeloginComponent,
+    EmployeedashComponent
 
   ],
   imports: [

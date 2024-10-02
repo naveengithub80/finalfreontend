@@ -21,4 +21,25 @@ export class EmployeeService {
 
   }
 
+
+
+
+
+  // Method to get an employee by ID
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.httpClient.get<Employee>(`${this.apiUrl}/${id}`);
+  }
+
+
+
+
+  // New method to get employee photo by ID (as a Blob)
+  getEmployeePhoto(id: number): Observable<Blob> {
+    return this.httpClient.get(`${this.apiUrl}/${id}/photo`, { responseType: 'blob' });
+  }
+
+
+
+
+
 }
