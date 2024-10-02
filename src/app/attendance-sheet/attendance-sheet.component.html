@@ -1,19 +1,19 @@
-<p>attendance-sheet works!</p>
-<form>
+
     <div class="container">
-        <h1>Attendance Sheet</h1>
+        <h1 style="color: #3b3a3acc;text-align:center;">Attendance Sheet</h1>
         <div class="month-nav">
           <button (click)="goToPreviousMonth()">Previous</button>
-          <!--span>{{ currentMonth | currentDate: 'MMMM yyyy' }}</span-->
-          <button (click)="goToNextMonth()">Next</button>
+          <span>{{ currentMonth | date: 'MMMM yyyy' }}</span>
+
+          <button (click)="goToNextMonth()" >Next</button>
         </div>
       
         <div class="table-responsive">
           <table>
             <thead>
               <tr>
-                <th>Employee ID</th>
-                <th>Employee Name</th>
+                <th>ID</th>
+                <th>Name</th>
                 <th>Designation</th>
                 <th *ngFor="let day of daysInMonth">{{ day }}</th>
                 <th>Present Days</th>
@@ -26,7 +26,7 @@
                 <td>{{ employee.name }}</td>
                 <td>{{ employee.designation }}</td>
                 <td *ngFor="let day of daysInMonth">
-                  <select >
+                  <select [(ngModel)]="employee.attendance[day]" [disabled]="!isCurrentDate(day)">
                     <option value="Present">Present</option>
                     <option value="Absent">Absent</option>
                   </select>
@@ -46,7 +46,7 @@
 
 
 
-</form>
+
 
 <!--div class="attendance-container">
   <table class="attendance-table">
@@ -87,4 +87,4 @@
     <button (click)="submitAttendance()">Submit</button>
   </div-->
 
-
+  

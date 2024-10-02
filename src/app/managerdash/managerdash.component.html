@@ -1,6 +1,6 @@
-<nav style="margin: auto" class="navbar navbar-expand-lg bg-dark">
+<!--<nav style="margin: auto" class="navbar navbar-expand-lg bg-skyblue">
 
-  <a style="color: white;" class="navbar-brand" href="#">Digital Soul</a>
+  <a style="color: white;" class="navbar-brand" href="#"><b>Digital Soul<b></a>
   <button class="navbar-toggler" type="button" 
           data-bs-toggle="collapse" 
           data-bs-target="#navbarSupportedContent" 
@@ -13,31 +13,71 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"  >
-      
+    
           <li class="nav-item">
-              <a style="color: white;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
-  
-          </li>
-          <li>
-            <button style="margin: 5px; background-color: antiquewhite;" class="btn btn-danger" routerLink="/attendance-sheet ">Attendance Sheet</button>
+              <a style="color: rgba(235, 237, 241, 0.311);" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
+            </li>
 
-          </li>
+            <li class="nav-item">
+                <a style="color: rgba(240, 242, 246, 0.365);" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/attendance-sheet">Attendance Sheet</a>
+            </li>
+
+            <li class="nav-item">
+                <a style="color: rgba(241, 242, 245, 0.26);" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/home">Logout</a>
+            </li>
   
-          <li>
-              <button style="margin: 5px;" class="btn btn-danger" routerLink="/home">Logout</button>
-          </li>
-          
-      </ul>
+  
+
+          <!--<li><button style="margin: 5px; background-color: antiquewhite;" class="btn btn-danger" routerLink="/attendance-sheet ">Attendance Sheet</button></li>
+  
+          <li><button style="margin: 5px;" class="btn btn-danger" routerLink="/home">Logout</button></li>
+          </ul>
   </div>
   
+  </nav>-->
+  
+
+  <nav style="margin: auto" class="navbar navbar-expand-lg bg-skyblue">
+    <div class="container-fluid">
+      <!-- Logo aligned to the left -->
+      <a style="color: white;" class="navbar-brand" href="#"><b>Digital Soul</b></a>
+      
+      <!-- Toggler button for mobile view -->
+      <button class="navbar-toggler" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarSupportedContent" 
+              aria-controls="navbarSupportedContent" 
+              aria-expanded="false" 
+              aria-label="Togglenavigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Links aligned to the right -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/attendance-sheet">Attendance Sheet</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/home">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
   
+
+
+
   <div class="container">
   
   <hr>
   <h2 style="text-align: center;margin-top: 20px;">Manager Dashboard</h2>
   <a style="color:rgb(86,86,86); font-size: x-large;">
-    <marquee behavior="scroll" direction="left">welcome to Manager Dashboard.Find the employee list below!!. </marquee></a>
+    <marquee behavior="scroll" direction="left">welcome to Manager Dashboard. Find the employee list below!!. </marquee></a>
   
   <div class="tableFixHead">
       <br>
@@ -77,8 +117,6 @@
               <td>{{employee.email}}</td>
               <td>{{employee.address}}</td>
               <td><img [src]="getEmployeePhotoUrl(employee.id)" alt="Employee Photo" width="100" height="100"></td>
-  
-  
   
   
           </tr>

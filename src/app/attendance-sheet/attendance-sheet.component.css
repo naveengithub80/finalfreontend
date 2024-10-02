@@ -108,7 +108,30 @@ button:hover {
   }
 }*/
 
-.attendance-container {
+table {
+  width: 100%;
+  border-color:rgba(217, 219, 220, 0.941) ;
+  margin: 20px 0;
+}
+
+
+
+.attendance-header {
+  text-align: center;
+}
+
+.month-nav {
+  display: flex;
+  justify-content: space-between; /* Ensure Previous is on the left, Next on the right */
+  align-items: center;
+  margin: 20px 0;
+}
+
+.month-nav span {
+  font-size: 20px; /* Style for the month name */
+}
+
+/*.attendance-container {
   max-width: 100%;
   overflow-x: auto;
   margin-top: 20px;
@@ -116,7 +139,7 @@ button:hover {
 
 .attendance-table {
   width: 100%;
-  border-collapse: collapse;
+  border-color:rgba(217, 219, 220, 0.941) ;
   text-align: left;
 }
 
@@ -172,6 +195,102 @@ button:hover {
   background-color: #f9f9f9;
 }
 
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}*/
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  text-align: center;
+
+
+}
+
+thead th {
+  background-color: #f2f2f2;
+}
+
+tbody td {
+  background-color: #fff;
+}
+
+th {
+  position: sticky;
+  top: 0; /* Sticks the header at the top when scrolling */
+  background-color: #f9f9f9;
+  z-index: 1; /* Ensures the header is above the content */
+}
+
+td:nth-child(1), th:nth-child(1)
+ {
+  position: sticky;
+  left: 0px; /* Sticks these columns at the left */
+  background-color: #f9f9f9;
+  z-index: 2; /* Ensures they are above the other columns */
+}
+
+/* Give different z-index for better stacking context */
+td:nth-child(2), th:nth-child(2) {
+  position: sticky;
+  left: 70px;
+  background-color: #f9f9f9;
+  z-index: 3;
+  min-width: 150px; /* Set a width for the Employee Name column */
+}
+td:nth-child(3), th:nth-child(3) {
+  position: sticky;
+  left: 200px;
+  background-color: #f9f9f9;
+  z-index: 4;
+  min-width: 150px;
+}
+
+/* Scrollable part starts from the 4th column */
+th, td {
+  min-width: 75px;
+}
+
+
+
+
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+
+button {
+  padding: 10px 20px;
+  background-color: #6594e6; /* Button background color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 10px; /* Adjust this value to change the curvature */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6594e6; /* Darker shade on hover */
+}
 
 
 

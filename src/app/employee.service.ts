@@ -12,12 +12,12 @@ export class EmployeeService {
   constructor(private httpClient:HttpClient) { }
 
  
-  private baseUrl="http://localhost:8070/api/v1/employees"
+  private apiUrl="http://localhost:8070/api/v1/employees"
 
 
   getEmployeeList():Observable<Employee []>{
 
-    return this.httpClient.get<Employee[]>(`${this.baseUrl}`)
+    return this.httpClient.get<Employee[]>(`${this.apiUrl}`)
 
   }
 

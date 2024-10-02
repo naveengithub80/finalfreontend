@@ -1,13 +1,33 @@
-<nav style="margin: auto" class="navbar navbar-expand-lg bg-dark">
+<nav style="margin: auto" class="navbar navbar-expand-lg bg-skyblue">
 
-<a style="color: white;" class="navbar-brand" href="#">Digital Soul</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Togglenavigation">
-    <span class="navbar-toggler-icon"></span>
-
+<a style="color: white;" class="navbar-brand" href="#"><b>Digital Soul</b></a>
+<!-- Toggler button for mobile view -->
+<button class="navbar-toggler" type="button" 
+data-bs-toggle="collapse" 
+data-bs-target="#navbarSupportedContent" 
+aria-controls="navbarSupportedContent" 
+aria-expanded="false" 
+aria-label="Togglenavigation">
+<span class="navbar-toggler-icon"></span>
 </button>
 
+<!-- Links aligned to the right -->
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
+</li>
+<li class="nav-item">
+<a  class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/attendance-sheet">Attendance Sheet</a>
+</li>
+<li class="nav-item">
+<a  class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/home">Logout</a>
+</li>
+</ul>
+</div>
+
+<!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
             <a style="color: white; margin:5px;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/addEmployee">Add Employees</a>
 
@@ -20,7 +40,7 @@
             <button style="margin: 5px;" class="btn btn-danger" routerLink="/home">Logout</button>
         </li>
     </ul>
-</div>
+</div>-->
 
 </nav>
 

@@ -1,3 +1,4 @@
+//employee-form.ts
 import { Component } from '@angular/core';
 import { Employee } from '../employee'; // Assuming you have an Employee model defined in '../employee'
 import { HttpClient } from '@angular/common/http';

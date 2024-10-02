@@ -1,3 +1,5 @@
+//ManagerdashComponent.ts
+
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';

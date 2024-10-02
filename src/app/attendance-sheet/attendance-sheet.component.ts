@@ -1,4 +1,10 @@
+//attendance sheet.ts
 import { Component, OnInit } from '@angular/core';
+//import { AttendanceService } from './attendance.service'; // Import the service to handle backend calls
+import { ChangeDetectorRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; // Include this to call the Spring Boot backend API
+//import{ EmployeeService } from '../employee.service;'
+
 interface Attendance {
   [key: number]: string | undefined;
 }
@@ -18,41 +24,27 @@ interface Employee {
 export class AttendanceSheetComponent implements OnInit {
   currentMonth: Date = new Date();
   daysInMonth: number[] = [];
+  today: Date = new Date(); // Holds today's actual date
+  employees: any[] = [];
 
-  employees:Employee[]= [
-    { id: 1, name: 'John Doe', designation: 'Developer', attendance: {} },
-    { id: 2, name: 'Jane Smith', designation: 'Designer', attendance: {} },
-    // Add more employees here
-  ];
 
-  ngOnInit() {
-    this.setDaysInMonth();
-    this.initializeEmployeeAttendance();
-
+  constructor( private cdr: ChangeDetectorRef, private http: HttpClient) {
   }
-  // Sets the days of the current month
-  setDaysInMonth() {
-    const year = this.currentMonth.getFullYear();
-    const month = this.currentMonth.getMonth();
-    const days = new Date(year, month + 1, 0).getDate();
-    this.daysInMonth = Array.from({ length: days }, (_, i) => i + 1);
+  ngOnInit(){
+    this.generateDaysInMonth();
+    this.fetchEmployeeData();  // Fetch employees when component loads
   }
 
 
-  initializeEmployeeAttendance() {
-    this.employees.forEach(employee => {
-      employee.attendance = {};
-      this.daysInMonth.forEach(day => {
-        if (!employee.attendance[day]) {
-          employee.attendance[day] = '';  // Initialize with an empty value
-        }
- });
-    });
-  }
-
+    generateDaysInMonth(): void {
+      const year = this.currentMonth.getFullYear();
+      const month = this.currentMonth.getMonth(); // Remember JavaScript months are 0-indexed
+      const days = new Date(year, month + 1, 0).getDate(); // Get the number of days in the month
+      this.daysInMonth = Array.from({ length: days }, (_, i) => i + 1); // Fill the array with day numbers
+    }
   
 
-  goToPreviousMonth() {
+  /*goToPreviousMonth() {
     this.currentMonth.setMonth(this.currentMonth.getMonth() - 1);
     this.setDaysInMonth();
     this.initializeEmployeeAttendance(); // Reinitialize attendance for the new month
@@ -64,7 +56,42 @@ export class AttendanceSheetComponent implements OnInit {
     this.setDaysInMonth();
     this.initializeEmployeeAttendance(); // Reinitialize attendance for the new month
 
+  }*/
+
+   // Navigate to the previous month
+  goToPreviousMonth() {
+    this.currentMonth = new Date(this.currentMonth.setMonth(this.currentMonth.getMonth() - 1)); // Go to previous month
+    this.generateDaysInMonth(); // Regenerate the days in the new month
+    this.cdr.detectChanges(); // Ensure Angular detects the change and updates the view
   }
+
+  // Navigate to the next month
+  goToNextMonth() {
+    this.currentMonth = new Date(this.currentMonth.setMonth(this.currentMonth.getMonth() + 1)); // Go to next month
+    this.generateDaysInMonth(); // Regenerate the days in the new month
+    this.cdr.detectChanges(); // Ensure Angular detects the change and updates the view
+  }
+
+  // Check if a given day is today, and enable the dropdown for the current day only
+  isCurrentDate(day: number): boolean {
+    return (
+      day === this.today.getDate() &&
+      this.currentMonth.getMonth() === this.today.getMonth() &&
+      this.currentMonth.getFullYear() === this.today.getFullYear()
+    );
+  }
+
+  // Fetch employee data from backend
+  fetchEmployeeData() {
+    this.http.get<any[]>('http://localhost:8070/api/employees').subscribe((data) => {
+      this.employees = data.map(employee => ({
+        ...employee,
+        attendance: {}
+      }));
+    });
+  }
+
+ 
 
   calculatePresentDays(attendance: any): number {
     return Object.values(attendance).filter(value => value === 'Present').length;
@@ -74,122 +101,19 @@ export class AttendanceSheetComponent implements OnInit {
     return Object.values(attendance).filter(value => value === 'Absent').length;
   }
 
+  // Submit attendance to backend
   submitAttendance() {
-    // Submit logic here
-    console.log(this.employees);
-  }
+    const attendanceData = this.employees.map(employee => ({
+      id: employee.id,
+      attendance: employee.attendance
+    }));
+
+    this.http.post('http://localhost:8070/api/attendance', attendanceData).subscribe(() => {
+      console.log('Attendance submitted successfully');
+    });
+}
 }
 
-
-
-
-
-
-
-
-/*import { Component, OnInit } from '@angular/core';
-import { formatDate } from '@angular/common';
-
-
-@Component({
-  selector: 'app-attendance-sheet',
-  templateUrl: './attendance-sheet.component.html',
-  styleUrl: './attendance-sheet.component.css'
-})
-export class AttendanceSheetComponent implements OnInit  {
-[x: string]: any;
-  currentDate = new Date();
-  currentMonthYear = '';
-  
-  dates: string[] = [];
-  employees: any[] = [];
-
-  constructor() {
-    this.generateDates();
-    this.loadEmployees();
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  // Generate dates for a month (e.g., September)
-  generateDates() {
-    const month = 9; // September
-    const year = 2024;
-    const daysInMonth = new Date(year, month, 0).getDate();
-    for (let i = 1; i <= daysInMonth; i++) {
-      this.dates.push(i + '-' + month + '-' + year);
-    }
-  }
-
-  // Load employees from a database (mock data for now)
-  loadEmployees() {
-    this.employees = [
-      {
-        id: 'E001',
-        name: 'John Doe',
-        designation: 'Developer',
-        attendance: {},
-        workingDays: 0,
-        absentDays: 0
-      },
-      {
-        id: 'E002',
-        name: 'Jane Smith',
-        designation: 'Designer',
-        attendance: {},
-        workingDays: 0,
-        absentDays: 0
-      }
-      // Add more employees as needed
-    ];
-
-    // Initialize attendance
-    this.employees.forEach(employee => {
-      this.dates.forEach(date => {
-        employee.attendance[date] = 'Absent'; // Default to 'Absent'
-      });
-    });
-  }
-
-  // Calculate working and absent days for each employee
-  calculateDays(employee: any) {
-    let workingDays = 0;
-    let absentDays = 0;
-
-    this.dates.forEach(date => {
-      if (employee.attendance[date] === 'Present') {
-        workingDays++;
-      } else {
-        absentDays++;
-      }
-    });
-
-    employee.workingDays = workingDays;
-    employee.absentDays = absentDays;
-  }
-
-  submitAttendance() {
-    // Logic to submit attendance data to the backend
-    console.log('Attendance Submitted', this.employees);
-  }
-  isCurrentDate(day: number): boolean {
-    const today = new Date();
-    const currentMonth = this.currentDate.getMonth();
-    const currentYear = this.currentDate.getFullYear();
-
-    if (currentYear === today.getFullYear() && currentMonth === today.getMonth()) {
-      return today.getDate() === day;
-    }    
-    return false;
-  }
-  isToday(day: number): boolean {
-    const today = new Date();
-    const isCurrentMonth = this.currentDate.getMonth() === today.getMonth();
-    const isCurrentYear = this.currentDate.getFullYear() === today.getFullYear();
-    return isCurrentMonth && isCurrentYear && today.getDate() === day;
-  }
-}*/
 
 
 

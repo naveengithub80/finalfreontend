@@ -1,3 +1,4 @@
+//ManagerloginComponent.ts
 import { Component } from '@angular/core';
 import { ManagerauthService } from '../managerauth.service';
 import { Router } from '@angular/router';
