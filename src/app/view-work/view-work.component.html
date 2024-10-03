@@ -1,0 +1,20 @@
+<h2>Work Details</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Date</th>
+      <th>Work Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let work of workDetails">
+      <td>{{ work.employeeId }}</td>
+      <td>{{ work.employeeName }}</td>
+      <td>{{ work.workDate }}</td>
+      <td>{{ work.workDetails }}</td>
+    </tr>
+  </tbody>
+</table>

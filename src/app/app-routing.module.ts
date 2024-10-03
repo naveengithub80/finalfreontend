@@ -10,6 +10,8 @@ import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.co
 import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
 import { EmployeedashComponent } from './employeedash/employeedash.component';
 import { AdminauthguardService } from './adminauthguard.service';
+import { AddworkComponent } from './addwork/addwork.component';
+import { ViewWorkComponent } from './view-work/view-work.component';
 
 const routes: Routes = [
   
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'managerdash', component:ManagerdashComponent,canActivate:[AdminauthguardService]},
   {path: 'attendance-sheet', component:AttendanceSheetComponent},
   {path: 'employeelogin',component:EmployeeloginComponent},
-  {path: 'employeedash',component:EmployeedashComponent}
+  {path: 'employeedash',component:EmployeedashComponent},
+  {path: 'addwork',component:AddworkComponent},
+  {path: 'viewwork',component:ViewWorkComponent}
   
 
 ];

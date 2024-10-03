@@ -1,0 +1,25 @@
+<div *ngIf="message" [ngClass]="messageClass" class="notification">
+  {{ message }}
+</div>
+
+<form [formGroup]="workForm" (ngSubmit)="onSubmit()">
+  <!-- Form fields -->
+  <div>
+    <label for="employeeId">Employee ID</label>
+    <input id="employeeId" formControlName="employeeId" type="text" />
+  </div>
+  <div>
+    <label for="employeeName">Employee Name</label>
+    <input id="employeeName" formControlName="employeeName" type="text" />
+  </div>
+  <div>
+    <label for="workDate">Date</label>
+    <input id="workDate" formControlName="workDate" type="date" />
+  </div>
+  <div>
+    <label for="workDetails">Work Details</label>
+    <textarea id="workDetails" formControlName="workDetails"></textarea>
+  </div>
+  
+  <button type="submit">Submit</button>
+</form>

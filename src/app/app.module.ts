@@ -14,6 +14,10 @@ import { ManagerdashComponent } from './managerdash/managerdash.component';
 import { AttendanceSheetComponent } from './attendance-sheet/attendance-sheet.component';
 import { EmployeeloginComponent } from './employeelogin/employeelogin.component';
 import { EmployeedashComponent } from './employeedash/employeedash.component';
+import { AddworkComponent } from './addwork/addwork.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ViewWorkComponent } from './view-work/view-work.component';
+
 
 @NgModule({
   declarations: [
@@ -27,14 +31,18 @@ import { EmployeedashComponent } from './employeedash/employeedash.component';
     ManagerdashComponent,
     AttendanceSheetComponent,
     EmployeeloginComponent,
-    EmployeedashComponent
+    EmployeedashComponent,
+    AddworkComponent,
+    ViewWorkComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withFetch()) // Correct provider configuration
